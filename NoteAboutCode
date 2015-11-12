@@ -1,0 +1,11 @@
+Note about Code Sample:
+
+I personally wrote the code for lzw.c, lzwHashTable.c, lzwHashTable.h and modified code.c and code.h to create fcode.c and fcode.h
+We were given code.c, code.h and lzw.h by our Professor, Stan Eisenstat. They have been included for the sake of being able to compile and test the code.
+
+This code is for compression under the Lempel-Ziv-Welch algorithm, which learns from previous input to create an intelligent compression for later parts of the stream. It allows for customization under the flags -m, -i, -o and -p, where -m specifies the maximum number of bits that a code can require (after which point the table of values that our algorithm learns off of is frozen and only those codes recorded thusfar are used), the -i and -o flags allow for importing and exporting such tables of values. The -p flag has to do with pruning, which is, when we max out the number of elements in our table, the practice of removing all code values that are not used a certain number of times. The -p value specifies just how many times a code has to be used before we allow it to be retained under pruning.
+
+Upon compiling the code, it can be called with ./encode and ./decode to encode and decode files respectively.
+Ex: cat BigTextbook.pdf | ./encode | ./decode
+
+If anything above is unclear, I would be more than happy to elaborate further. Thanks!
